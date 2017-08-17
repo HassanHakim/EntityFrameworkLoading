@@ -25,7 +25,10 @@ namespace ExplicitLoading
                 Course LoadedCourse = context.Courses.Where(c => c.Name == ".NET Bridging").FirstOrDefault();
 
                 context.Entry(LoadedCourse).Collection(c => c.Students).Load();
-
+                foreach (Student student in LoadedCourse.Students)
+                {
+                    Console.WriteLine(student.Name);
+                }
 
 
                 Console.ReadLine();

@@ -52,13 +52,17 @@ namespace LazyLoading
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+        // forgein key refereces are marked as virtual
+        //    so EF can override and provide the lazy load behaviour 
+        public virtual ICollection<Student> Students { get; set; } 
     }
 
     public class Student
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        // forgein key refereces are marked as virtual
+        //    so EF can override and provide the lazy load behaviour 
         public virtual Course Course { get; set; }
     }
 }
